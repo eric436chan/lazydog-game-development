@@ -19,7 +19,7 @@ public class Focus : MonoBehaviour
             {
                 if (o.GetLevel() <= FocusLevel.instance.GetFocusLevel())
                 {
-                    o.GetMeshRenderer().material.SetFloat("", 1f);
+                    o.GetMeshRenderer().material.SetFloat("Boolean_Focused", 1f);
                 }
             }
         }
@@ -27,7 +27,7 @@ public class Focus : MonoBehaviour
         {
             foreach (InteractableObject o in intObjList)
             {
-                o.GetMeshRenderer().material.SetFloat("", 0f);
+                o.GetMeshRenderer().material.SetFloat("Boolean_Focused", 0f);
             }
         }
     }
