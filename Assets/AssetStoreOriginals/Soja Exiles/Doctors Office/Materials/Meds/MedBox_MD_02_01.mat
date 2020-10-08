@@ -91,7 +91,7 @@ Material:
     m_Floats:
     - Boolean_11B01196: 0
     - Boolean_F1B0B3A2: 0
-    - Boolean_Focused: 1
+    - Boolean_Focused: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1

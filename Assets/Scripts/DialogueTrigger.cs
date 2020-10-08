@@ -12,7 +12,7 @@ public class DialogueTrigger : MonoBehaviour
     private void Update()
     {
         dist = Vector3.Distance(gameObject.transform.position, controller.transform.position);
-        if (dist <= 5f && !init && Input.GetKeyDown(KeyCode.E))
+        if (dist <= 3.5f && !init && Input.GetKeyDown(KeyCode.E))
         {
 
             TriggerDialogue();
