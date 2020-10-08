@@ -20,15 +20,15 @@ public class Inventory : MonoBehaviour
 
     #endregion
 
-    [SerializeField] List<GameObject> inventory = new List<GameObject>();
+    [SerializeField] List<Item> inventory = new List<Item>();
     [SerializeField] int inventorySpace = 5;
 
-    public void addGameObject(GameObject go)
+    public void addItem(Item item)
     {
         if (inventory.Count < inventorySpace)
         {
-            inventory.Add(go);
-            Debug.Log(go.name);
+            inventory.Add(item);
+            Debug.Log(item.name);
         }
     }
 
