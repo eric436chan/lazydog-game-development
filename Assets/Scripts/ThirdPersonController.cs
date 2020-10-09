@@ -11,6 +11,7 @@ public class ThirdPersonController : MonoBehaviour
     float speed;
     public float runSpeed = 10f;
     public float walkspeed = 6f;
+    public float jumpspeed = 1.5f;
     public float turnSmooth = 0.1f;
     float turnSpeed;
 
@@ -21,10 +22,16 @@ public class ThirdPersonController : MonoBehaviour
     bool isGrounded;
     Vector3 velocity;
 
+    private float inputH;
+    private float inputV;
+    private bool run;
+    private bool isSitting;
+
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         speed = walkspeed;
+        isSitting = false;
     }
 
     // Update is called once per frame
@@ -33,12 +40,32 @@ public class ThirdPersonController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        anim.SetFloat("Horizontal", horizontal);
-        anim.SetFloat("Vertical", vertical);
+
+        if (Input.GetKeyDown("1") && !isSitting)
+        {
+            isSitting = true;
+            anim.SetBool("isSitting", true);
+        }
+        else if (Input.GetKeyDown("1") && isSitting)
+        {
+            isSitting = false;
+            anim.SetBool("isSitting", false);
+        }
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundLayer);
 
-        
+        if (Input.GetKey(KeyCode.Space))
+        {
+            anim.SetBool("jump", true);
+            velocity.y = Mathf.Sqrt(jumpspeed * -2 * gravity);
+        }
+        else
+        {
+            anim.SetBool("jump", false);
+        }
+       
+        anim.SetFloat("inputH", horizontal);
+        anim.SetFloat("inputV", vertical);
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
@@ -58,10 +85,12 @@ public class ThirdPersonController : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 speed = runSpeed;
+                anim.SetBool("run", true);
             }
             else
             {
                 speed = walkspeed;
+                anim.SetBool("run", false);
             }
 
 
