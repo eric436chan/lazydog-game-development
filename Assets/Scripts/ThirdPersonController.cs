@@ -40,12 +40,15 @@ public class ThirdPersonController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
+
         if (Input.GetKeyDown("1") && !isSitting)
         {
+            isSitting = true;
             anim.SetBool("isSitting", true);
         }
         else if (Input.GetKeyDown("1") && isSitting)
         {
+            isSitting = false;
             anim.SetBool("isSitting", false);
         }
 
