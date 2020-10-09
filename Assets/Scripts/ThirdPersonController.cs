@@ -41,38 +41,35 @@ public class ThirdPersonController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
 
-        if (Input.GetKeyDown("1") && !isSitting)
-        {
-            isSitting = true;
-            anim.SetBool("isSitting", true);
-        }
-        else if (Input.GetKeyDown("1") && isSitting)
-        {
-            isSitting = false;
-            anim.SetBool("isSitting", false);
-        }
+        //if (Input.GetKeyDown("1") && !isSitting)
+        //{
+        //    isSitting = true;
+        //    anim.SetBool("isSitting", true);
+        //}
+        //else if (Input.GetKeyDown("1") && isSitting)
+        //{
+        //    isSitting = false;
+        //    anim.SetBool("isSitting", false);
+        //}
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDist, groundLayer);
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            anim.SetBool("jump", true);
-            velocity.y = Mathf.Sqrt(jumpspeed * -2 * gravity);
+            speed = runSpeed;
+            anim.SetBool("run", true);
         }
         else
         {
-            anim.SetBool("jump", false);
+            speed = walkspeed;
+            anim.SetBool("run", false);
         }
-       
+
+
         anim.SetFloat("inputH", horizontal);
         anim.SetFloat("inputV", vertical);
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-
-        if(isGrounded && velocity.y <= 0f)
-        {
-            velocity.y = -2f;
-        }
 
         if (direction.magnitude >= 0.1f)
         {
@@ -82,16 +79,31 @@ public class ThirdPersonController : MonoBehaviour
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-            if (Input.GetKey(KeyCode.LeftShift))
+            //if (Input.GetKey(KeyCode.LeftShift))
+            //{
+            //    speed = runSpeed;
+            //    anim.SetBool("run", true);
+            //}
+            //else
+            //{
+            //    speed = walkspeed;
+            //    anim.SetBool("run", false);
+            //}
+
+            if (isGrounded && velocity.y <= 0f)
             {
-                speed = runSpeed;
-                anim.SetBool("run", true);
+                velocity.y = -2f;
             }
-            else
-            {
-                speed = walkspeed;
-                anim.SetBool("run", false);
-            }
+
+            //if (Input.GetKey(KeyCode.Space) && isGrounded)
+            //{
+            //    anim.SetBool("jump", true);
+            //    velocity.y = Mathf.Sqrt(jumpspeed * -2 * gravity);
+            //}
+            //else
+            //{
+            //    anim.SetBool("jump", false);
+            //}
 
 
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
