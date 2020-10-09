@@ -8,14 +8,14 @@ public class PuzzleTrigger : MonoBehaviour
     public CharacterController controller;
     public GameObject puzzle;
     InteractableObjectImpl highlightScript;
-    Focus focusScript;
+    //Focus focusScript;
     MeshRenderer mesh;
     public float dist;
 
     private void Start()
     {
         highlightScript = gameObject.GetComponent<InteractableObjectImpl>();
-        focusScript = controller.gameObject.GetComponent<Focus>();
+        //focusScript = controller.gameObject.GetComponent<Focus>();
         mesh = gameObject.GetComponent<MeshRenderer>();
     }
 
@@ -29,12 +29,12 @@ public class PuzzleTrigger : MonoBehaviour
         if(dist <= 5f && Input.GetKeyDown(KeyCode.E))
         {
             puzzle.SetActive(false);
-            focusScript.enabled = false;
+            //focusScript.enabled = false;
             mesh.material.SetFloat("Boolean_Focused", 0f);
             Destroy(highlightScript);
         }
 
-        focusScript.enabled = true;
+        //focusScript.enabled = true;
 
 
     }
