@@ -8,15 +8,17 @@ public class PuzzleTrigger : MonoBehaviour
     public CharacterController controller;
     public GameObject puzzle;
     InteractableObjectImpl highlightScript;
-    //Focus focusScript;
-    MeshRenderer mesh;
+    DialogueTrigger dialogueScript;
+   
+   
     public float dist;
 
     private void Start()
     {
         highlightScript = gameObject.GetComponent<InteractableObjectImpl>();
-        //focusScript = controller.gameObject.GetComponent<Focus>();
-        mesh = gameObject.GetComponent<MeshRenderer>();
+        dialogueScript = gameObject.GetComponent<DialogueTrigger>();
+       
+       
     }
 
     // Update is called once per frame
@@ -29,12 +31,12 @@ public class PuzzleTrigger : MonoBehaviour
         if(dist <= 5f && Input.GetKeyDown(KeyCode.E))
         {
             puzzle.SetActive(false);
-            //focusScript.enabled = false;
-            mesh.material.SetFloat("Boolean_Focused", 0f);
-            Destroy(highlightScript);
+           
+            Destroy(dialogueScript);
+            highlightScript.SetLevel(99);
         }
 
-        //focusScript.enabled = true;
+       
 
 
     }

@@ -26,7 +26,14 @@ public class DialogueTrigger : MonoBehaviour
 
         if (dist > 3.5f)
         {
+            //DialogueManager.instance.anim.SetBool("isOpen", false);
             init = false;
+        }
+
+        if(DialogueManager.instance.sentences.Count == 0)
+        {
+            //DialogueManager.instance.anim.SetBool("isOpen", false);
+           
         }
 
 

@@ -11,6 +11,11 @@ public class InteractableObjectImpl : MonoBehaviour, InteractableObject
         return level;
     }
 
+    public void SetLevel(int level)
+    {
+        this.level = level;
+    }
+
     public MeshRenderer GetMeshRenderer()
     {
         return gameObject.GetComponent<MeshRenderer>();

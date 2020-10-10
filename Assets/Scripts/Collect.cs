@@ -43,8 +43,10 @@ public class Collect : MonoBehaviour
         {
             Inventory.instance.addItem(item);
             Debug.Log("Collecting " + item.name);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+
+
 
     }
 }
