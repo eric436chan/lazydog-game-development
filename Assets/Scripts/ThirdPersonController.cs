@@ -11,7 +11,7 @@ public class ThirdPersonController : MonoBehaviour
     float speed;
     public float runSpeed = 10f;
     public float walkspeed = 6f;
-    public float jumpspeed = 1.5f;
+    public float jumpspeed = 2f;
     public float turnSmooth = 0.1f;
     float turnSpeed;
 
@@ -90,26 +90,25 @@ public class ThirdPersonController : MonoBehaviour
             //    anim.SetBool("run", false);
             //}
 
-            if (isGrounded && velocity.y <= 0f)
-            {
-                velocity.y = -2f;
-            }
-
-            //if (Input.GetKey(KeyCode.Space) && isGrounded)
-            //{
-            //    anim.SetBool("jump", true);
-            //    velocity.y = Mathf.Sqrt(jumpspeed * -2 * gravity);
-            //}
-            //else
-            //{
-            //    anim.SetBool("jump", false);
-            //}
-
-
+            
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
-
-            velocity.y += gravity * Time.deltaTime;
-            controller.Move(velocity * Time.deltaTime);
         }
+        if (isGrounded && velocity.y <= 0f)
+        {
+            velocity.y = -2f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            anim.SetBool("jump", true);
+            velocity.y = Mathf.Sqrt(jumpspeed * -2 * gravity);
+        }
+        else
+        {
+            anim.SetBool("jump", false);
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
 }
