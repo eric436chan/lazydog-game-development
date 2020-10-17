@@ -2,23 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PuzzleTrigger : MonoBehaviour
+public class FirstPuzzleTrigger : MonoBehaviour
 {
 
     public CharacterController controller;
     public GameObject puzzle;
     InteractableObjectImpl highlightScript;
-    DialogueTrigger dialogueScript;
-   
-   
+  
     public float dist;
 
     private void Start()
     {
         highlightScript = gameObject.GetComponent<InteractableObjectImpl>();
-        dialogueScript = gameObject.GetComponent<DialogueTrigger>();
-       
-       
     }
 
     // Update is called once per frame
@@ -31,9 +26,12 @@ public class PuzzleTrigger : MonoBehaviour
         if(dist <= 5f && Input.GetKeyDown(KeyCode.E))
         {
             puzzle.SetActive(false);
-           
-            Destroy(dialogueScript);
+            JammoDialogueManager.instance.dialogueNumber = 3;
+            PuzzleManager.instance.isPuzzleOneFinished = true;
             highlightScript.SetLevel(99);
+            FindObjectOfType<JammoPuzzleOneAI>().enabled = true;
+            FindObjectOfType<PuzzleOneDest>().enabled = true;
+            Destroy(this);
         }
 
        

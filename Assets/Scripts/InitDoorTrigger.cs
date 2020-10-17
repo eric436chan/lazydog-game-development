@@ -2,21 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Filler : MonoBehaviour
+public class InitDoorTrigger : MonoBehaviour
 {
-    public CharacterController controller;
-    float dist;
-    // Start is called before the first frame update
-    
 
+    public CharacterController controller;
+    public Animator anim;
+    float dist;
+    
     // Update is called once per frame
     void Update()
     {
         dist = Vector3.Distance(controller.transform.position, gameObject.transform.position);
+        anim.SetFloat("Dist", dist);
 
-        if(dist <= 3f && Input.GetKeyDown(KeyCode.E))
+        if(dist <= 5f)
         {
-            Debug.Log("This is a filler feature that the team has not yet implemented! Come back soon to see any changes!");
+            GetComponent<BoxCollider>().enabled = false;
+            
+        }
+        else
+        {
+            GetComponent<BoxCollider>().enabled = true;
+           
         }
     }
 }

@@ -7,39 +7,84 @@ public class FirstPersonPlayer : MonoBehaviour
     public CharacterController controller;
     public Animator anim;
 
-    float moveSpeed = 4f;
-    float walkSpeed = 2f;
+
+    float speed;
+    public float runSpeed = 4f;
+    public float walkSpeed = 2f;
+    public bool isRunning;
+
+
+    public bool isJumping;
+    public float jump = 3f;
+    public float gravity = -9.8f;
+
+    Vector3 velocity;
+    bool isGrounded;
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
 
     // Start is called before the first frame update
     void Start()
     {
+        speed = walkSpeed;
+        isRunning = false;
+        isJumping = false;
         
-        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
 
-        anim.SetFloat("Horizontal", x);
-        anim.SetFloat("Vertical", z);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        Vector3 move;
-        if (z <= 0)
+        if (isGrounded && velocity.y < 0)
         {
-            move = transform.forward * z * walkSpeed;
-            anim.SetFloat("Horizontal", 0);
+            velocity.y = -2f;
+        }
+
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        if(vertical <= 0.1f && vertical >= -0.1f)
+        {
+            horizontal = 0f;
+        }
+
+
+        anim.SetFloat("inputH", horizontal);
+        anim.SetFloat("inputV", vertical);
+
+        Vector3 move = transform.right * horizontal + transform.forward * vertical;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = runSpeed;
+            anim.SetBool("run", true);
         }
         else
         {
-            move = (transform.right * x + transform.forward * z)*moveSpeed;
+            speed = walkSpeed;
+            anim.SetBool("run", false);
         }
-        
 
-        controller.Move(move * Time.deltaTime);
+        controller.Move(move * speed * Time.deltaTime);
 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            anim.SetBool("jump", true);
+            velocity.y = Mathf.Sqrt(jump * -2 * gravity);
+        }
+        else
+        {
+            anim.SetBool("jump", false);
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
+
+   
 
 }
