@@ -9,6 +9,7 @@ public class PuzzleManager : MonoBehaviour
 
     public bool isPuzzleOneFinished = false;
     public int puzzleTwoFixed = 0;
+    public bool isPuzzleTwoFinished = false;
 
 
 

@@ -31,6 +31,7 @@ public class FirstPersonPlayer : MonoBehaviour
         isRunning = false;
         isJumping = false;
         
+        
     }
 
     // Update is called once per frame
