@@ -7,7 +7,7 @@ public class SecondPuzzleConsoleTrigger : MonoBehaviour
 
     public CharacterController controller;
     float dist;
-    public GameObject puzzle;
+    //public GameObject puzzle;
     
     void Update()
     {
@@ -19,9 +19,10 @@ public class SecondPuzzleConsoleTrigger : MonoBehaviour
             {
                 if(PuzzleManager.instance.puzzleTwoFixed == 3)
                 {
-                    puzzle.GetComponent<RisingDoor>().enabled = true;
+                    PuzzleManager.instance.isPuzzleTwoFinished = true;
                     Debug.Log("Second Puzzle Completed");
-                    Destroy(this);
+                    
+                    
                 }
                 else
                 {
@@ -29,6 +30,8 @@ public class SecondPuzzleConsoleTrigger : MonoBehaviour
                 }
             }
         }
+
+
 
 
 

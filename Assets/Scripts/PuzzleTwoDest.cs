@@ -34,16 +34,16 @@ public class PuzzleTwoDest : MonoBehaviour
                 currentDest = new Vector3(-77.7f, 4.5f, -41.56f);
                 break;
             case 4:
-                currentDest = new Vector3(-65f, 4.5f, -31.31f);
+                currentDest = new Vector3(-65f, 4.5f, -30.7f);
                 break;
             case 3:
-                currentDest = new Vector3(-43.7f, 4.5f, -31.31f);
+                currentDest = new Vector3(-43.7f, 4.5f, -30.7f);
                 break;
             case 2:
-                currentDest = new Vector3(-36.76f, 4.5f, -26.4f);
+                currentDest = new Vector3(-35.79f, 4.5f, -25.39f);
                 break;
             case 1:
-                currentDest = new Vector3(-16.5f, 4.5f, -26.4f);
+                currentDest = new Vector3(-16.5f, 4.5f, -25.39f);
 
                 break;
 
