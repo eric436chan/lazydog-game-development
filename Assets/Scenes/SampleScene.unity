@@ -7998,7 +7998,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 36b5cba1111e25849b7ad46d9ad3f85e, type: 3}
       propertyPath: m_Name
-      value: Wrench_Combination
+      value: wrench
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 36b5cba1111e25849b7ad46d9ad3f85e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19753,8 +19753,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -221.64}
-  m_SizeDelta: {x: -557.0647, y: -494.5993}
+  m_AnchoredPosition: {x: 0, y: -246.58}
+  m_SizeDelta: {x: -557.0647, y: -544.4881}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021130483
 MonoBehaviour:
@@ -32708,6 +32708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ed9bbb49919dc40a550db62ad03090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites: []
   inventory: []
   inventorySpace: 20
 --- !u!114 &1615312285
@@ -43972,6 +43973,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 143958419}
     m_Modifications:
+    - target: {fileID: 1294515508986421086, guid: ebc09d3371c3a044dbabf930663a0448, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.018532
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294515508986421086, guid: ebc09d3371c3a044dbabf930663a0448, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 24.568066
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294515508986421086, guid: ebc09d3371c3a044dbabf930663a0448, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.248
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294515508986421086, guid: ebc09d3371c3a044dbabf930663a0448, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 24.481915
+      objectReference: {fileID: 0}
     - target: {fileID: 1294515508986421087, guid: ebc09d3371c3a044dbabf930663a0448, type: 3}
       propertyPath: m_Color.a
       value: 0
