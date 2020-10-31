@@ -1,27 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FirstPuzzleDoor : MonoBehaviour
 {
-
-
     public CharacterController controller;
     public Animator anim;
-    float dist;
-    
-   
+    public Animator textAnim;
+    public TextMeshProUGUI infoText;
+    private float dist;
 
-    
-    void Update()
+    private void Update()
     {
         dist = Vector3.Distance(controller.transform.position, gameObject.transform.position);
 
-        if(dist <= 5f)
+        if (dist <= 5f)
         {
             if (Input.GetKeyDown(KeyCode.E) && !PuzzleManager.instance.isPuzzleOneFinished)
             {
-                Debug.Log("Door is locked");
+                infoText.text = "Door is locked....";
+                textAnim.Play("Out");
             }
         }
 

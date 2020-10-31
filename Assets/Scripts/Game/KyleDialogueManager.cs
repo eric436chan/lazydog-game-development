@@ -9,7 +9,9 @@ public class KyleDialogueManager : MonoBehaviour
     public Text dialogueText;
     public Animator anim;
     public static KyleDialogueManager instance;
+
     #region Manager
+
     private void Awake()
     {
         if (instance != null)
@@ -19,14 +21,17 @@ public class KyleDialogueManager : MonoBehaviour
 
         instance = this;
     }
-    #endregion
+
+    #endregion Manager
 
     public int dialogueNumber = 1;
     public Queue<string> sentences;
+
     private void Start()
     {
         sentences = new Queue<string>();
     }
+
     public void IncrementDialogueNumber()
     {
         dialogueNumber++;
@@ -35,7 +40,7 @@ public class KyleDialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         Debug.Log("Dialogue Started");
-        anim.SetBool("isOpen", true);
+        anim.SetBool("talking", true);
         nameText.text = dialogue.name;
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
@@ -43,7 +48,6 @@ public class KyleDialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
-
     }
 
     public void DisplayNextSentence()
@@ -64,7 +68,7 @@ public class KyleDialogueManager : MonoBehaviour
         StartCoroutine(Wait());
     }
 
-    IEnumerator TypeSentence(string sentence)
+    private IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
@@ -74,11 +78,10 @@ public class KyleDialogueManager : MonoBehaviour
         }
     }
 
-    IEnumerator Wait()
+    private IEnumerator Wait()
     {
-        anim.SetBool("isOpen", false);
+        anim.SetBool("talking", false);
         yield return new WaitForSeconds(0.5f);
         FindObjectOfType<KyleDialogueTrigger>().init = false;
-
     }
 }

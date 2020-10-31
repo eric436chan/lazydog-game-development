@@ -11,8 +11,10 @@ public class JammoDialogueManager : MonoBehaviour
     public Text dialogueText;
     public Animator anim;
     public static JammoDialogueManager instance;
+    public GameObject inventoryPanel;
 
     #region Manager
+
     private void Awake()
     {
         if (instance != null)
@@ -22,16 +24,17 @@ public class JammoDialogueManager : MonoBehaviour
 
         instance = this;
     }
-    #endregion
+
+    #endregion Manager
 
     public int dialogueNumber = 1;
     public Queue<string> sentences;
-
 
     private void Start()
     {
         sentences = new Queue<string>();
     }
+
     public void IncrementDialogueNumber()
     {
         dialogueNumber++;
@@ -39,8 +42,10 @@ public class JammoDialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        inventoryPanel.SetActive(false);
         Debug.Log("Dialogue Started");
         anim.SetBool("isOpen", true);
+
         nameText.text = dialogue.name;
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
@@ -48,7 +53,6 @@ public class JammoDialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
-
     }
 
     public void DisplayNextSentence()
@@ -69,7 +73,7 @@ public class JammoDialogueManager : MonoBehaviour
         StartCoroutine(Wait());
     }
 
-    IEnumerator TypeSentence(string sentence)
+    private IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
@@ -79,11 +83,20 @@ public class JammoDialogueManager : MonoBehaviour
         }
     }
 
-    IEnumerator Wait()
+    private IEnumerator Wait()
     {
         anim.SetBool("isOpen", false);
+        inventoryPanel.SetActive(true);
         yield return new WaitForSeconds(0.5f);
-        FindObjectOfType<JammoDialogueTrigger>().init = false;
+        if (dialogueNumber == 3 && FindObjectOfType<JammoDialogueTrigger>().init)
+        {
+            IncrementDialogueNumber();
+        }
+        if (dialogueNumber == 6 && FindObjectOfType<JammoDialogueTrigger>().init)
+        {
+            Inventory.instance.clearInventory();
+        }
 
+        FindObjectOfType<JammoDialogueTrigger>().init = false;
     }
 }

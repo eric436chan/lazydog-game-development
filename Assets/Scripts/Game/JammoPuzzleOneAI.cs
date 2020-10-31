@@ -5,22 +5,22 @@ using UnityEngine.AI;
 
 public class JammoPuzzleOneAI : MonoBehaviour
 {
+    private PuzzleManager puzzleManager;
+    private NavMeshAgent agent;
 
-    PuzzleManager puzzleManager;
-    NavMeshAgent agent;
-    
     public GameObject dest;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
-        puzzleManager = PuzzleManager.instance;   
+        puzzleManager = PuzzleManager.instance;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (puzzleManager.isPuzzleOneFinished)
+        if (puzzleManager.isPuzzleOneFinished && JammoDialogueManager.instance.dialogueNumber == 4)
         {
             FindObjectOfType<JammoDialogueTrigger>().enabled = false;
             agent.SetDestination(dest.transform.position);
