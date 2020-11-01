@@ -8075,7 +8075,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 811928940}
   anim: {fileID: 454351019}
+  fadeAnim: {fileID: 1184641311}
+  fadingText: {fileID: 1184641308}
   box: {fileID: 0}
+  key: {fileID: 11400000, guid: cd492739f6a364b44b980312d2405873, type: 2}
   isOpen: 0
 --- !u!65 &454351024
 BoxCollider:
@@ -10581,6 +10584,7 @@ MonoBehaviour:
   anim: {fileID: 484016116}
   jammoAnim: {fileID: 1787910525}
   inventoryPanel: {fileID: 1994930506}
+  key: {fileID: 11400000, guid: cd492739f6a364b44b980312d2405873, type: 2}
   dialogueNumber: 1
 --- !u!4 &568656208 stripped
 Transform:
@@ -23118,13 +23122,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1180464020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74c7ae0df0f797a429c1596dbf2547d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 18789cb0cb26d4e4098060500f4d37b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 811928940}
   anim: {fileID: 1180464024}
-  textAnim: {fileID: 1184641311}
-  infoText: {fileID: 1184641308}
+  fadeAnim: {fileID: 1184641311}
+  fadingText: {fileID: 1184641308}
+  box: {fileID: 0}
+  key: {fileID: 11400000, guid: cd492739f6a364b44b980312d2405873, type: 2}
+  isOpen: 0
 --- !u!95 &1180464024 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9573410, guid: 2d927feb0fbf1a7429c095369d395de7, type: 3}
@@ -35284,7 +35291,8 @@ MonoBehaviour:
     - Hey! You're finally awake!
     - Listen! I'm gonna need your help with a few things.
     - Do you think you can fix that generator in the other room?
-    - You can press [E] to open doors.
+    - The doors are currently locked and you need a key to open them.
+    - Here's the key! Press [E] to open the door.
   dialogue2:
     name: Jammo
     sentences:

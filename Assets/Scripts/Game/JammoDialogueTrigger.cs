@@ -61,7 +61,7 @@ public class JammoDialogueTrigger : MonoBehaviour
 
                         case 1:
                             dialogueToRead = dialogue1;
-                            JammoDialogueManager.instance.IncrementDialogueNumber();
+
                             break;
                     }
                     TriggerDialogue(dialogueToRead);

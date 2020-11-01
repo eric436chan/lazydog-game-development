@@ -14,6 +14,8 @@ public class JammoDialogueManager : MonoBehaviour
     public static JammoDialogueManager instance;
     public GameObject inventoryPanel;
 
+    public Item key;
+
     #region Manager
 
     private void Awake()
@@ -91,6 +93,13 @@ public class JammoDialogueManager : MonoBehaviour
         anim.SetBool("isOpen", false);
         inventoryPanel.SetActive(true);
         yield return new WaitForSeconds(0.5f);
+
+        if (dialogueNumber == 1 && FindObjectOfType<JammoDialogueTrigger>().init)
+        {
+            Inventory.instance.addItem(key);
+            IncrementDialogueNumber();
+        }
+
         if (dialogueNumber == 3 && FindObjectOfType<JammoDialogueTrigger>().init)
         {
             IncrementDialogueNumber();
