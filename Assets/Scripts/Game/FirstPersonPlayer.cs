@@ -7,37 +7,32 @@ public class FirstPersonPlayer : MonoBehaviour
     public CharacterController controller;
     public Animator anim;
 
-
-    float speed;
+    private float speed;
     public float runSpeed = 4f;
     public float walkSpeed = 2f;
     public bool isRunning;
-
 
     public bool isJumping;
     public float jump = 3f;
     public float gravity = -9.8f;
 
-    Vector3 velocity;
-    bool isGrounded;
+    private Vector3 velocity;
+    private bool isGrounded;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         speed = walkSpeed;
         isRunning = false;
         isJumping = false;
-        
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -47,12 +42,6 @@ public class FirstPersonPlayer : MonoBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-
-        if(vertical <= 0.1f && vertical >= -0.1f)
-        {
-            horizontal = 0f;
-        }
-
 
         anim.SetFloat("inputH", horizontal);
         anim.SetFloat("inputV", vertical);
@@ -85,7 +74,4 @@ public class FirstPersonPlayer : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-
-   
-
 }

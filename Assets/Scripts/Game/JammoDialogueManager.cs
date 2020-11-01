@@ -10,6 +10,7 @@ public class JammoDialogueManager : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
     public Animator anim;
+    public Animator jammoAnim;
     public static JammoDialogueManager instance;
     public GameObject inventoryPanel;
 
@@ -45,6 +46,7 @@ public class JammoDialogueManager : MonoBehaviour
         inventoryPanel.SetActive(false);
         Debug.Log("Dialogue Started");
         anim.SetBool("isOpen", true);
+        jammoAnim.SetBool("isTalking", true);
 
         nameText.text = dialogue.name;
         sentences.Clear();
@@ -70,6 +72,7 @@ public class JammoDialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        jammoAnim.SetBool("isTalking", false);
         StartCoroutine(Wait());
     }
 
