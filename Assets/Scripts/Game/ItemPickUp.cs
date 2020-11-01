@@ -23,6 +23,10 @@ public class ItemPickUp : MonoBehaviour
 
         if (selected != null)
         {
+            /*foreach (Material material in selected.GetComponent<MeshRender>().materials)
+            {
+                material.SetFloat("Boolean_Focused", 0f);
+            }*/
             selected.GetComponent<MeshRenderer>().material.SetFloat("Boolean_Focused", 0f);
             selected = null;
         }
