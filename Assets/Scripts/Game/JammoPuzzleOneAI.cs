@@ -9,6 +9,7 @@ public class JammoPuzzleOneAI : MonoBehaviour
     private NavMeshAgent agent;
 
     public GameObject dest;
+    public Animator anim;
 
     // Start is called before the first frame update
     private void Start()
@@ -22,8 +23,14 @@ public class JammoPuzzleOneAI : MonoBehaviour
     {
         if (puzzleManager.isPuzzleOneFinished && JammoDialogueManager.instance.dialogueNumber == 4)
         {
-            FindObjectOfType<JammoDialogueTrigger>().enabled = false;
+            //agent.updatePosition = false;
+            //agent.updateRotation = true;
+
+             // and in your Update:
+             anim.SetBool("isWalking", true);
+             FindObjectOfType<JammoDialogueTrigger>().enabled = false;
             agent.SetDestination(dest.transform.position);
         }
+        //anim.SetBool("isWalking", false);
     }
 }

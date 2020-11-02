@@ -7,7 +7,7 @@ public class JammoPuzzleTwoAI : MonoBehaviour
 {
     private PuzzleManager puzzleManager;
     private NavMeshAgent agent;
-
+    public Animator anim;
     public GameObject dest;
 
     // Start is called before the first frame update
@@ -24,6 +24,7 @@ public class JammoPuzzleTwoAI : MonoBehaviour
         {
             FindObjectOfType<JammoDialogueTrigger>().enabled = false;
             agent.SetDestination(dest.transform.position);
+            anim.SetBool("isWalking", true);
         }
     }
 }
