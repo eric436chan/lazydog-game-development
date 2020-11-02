@@ -106,8 +106,8 @@ public class Inventory : MonoBehaviour
         //Debug.Log("hi");
         if (name.Contains("Wrench"))
         {
-            Debug.Log(sprites[8].ToString());
-            child.sprite = sprites[8];
+            Debug.Log(sprites[9].ToString());
+            child.sprite = sprites[9];
 
             Color temp = child.color;
             temp.a = 1f;
@@ -124,8 +124,17 @@ public class Inventory : MonoBehaviour
         }
         if (name.Contains("Screwdriver"))
         {
-            Debug.Log(sprites[5].ToString());
-            child.sprite = sprites[5];
+            Debug.Log(sprites[4].ToString());
+            child.sprite = sprites[4];
+
+            Color temp = child.color;
+            temp.a = 1f;
+            child.color = temp;
+        }
+        if (name.Contains("Key"))
+        {
+            Debug.Log(sprites[3].ToString());
+            child.sprite = sprites[3];
 
             Color temp = child.color;
             temp.a = 1f;

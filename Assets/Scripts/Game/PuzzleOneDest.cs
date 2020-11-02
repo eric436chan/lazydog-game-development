@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PuzzleOneDest : MonoBehaviour
 {
+
+    public Animator anim;
     Vector3 currentDest;
     int pivotPoint = 0;
+    
     private void Start()
     {
         gameObject.transform.position = new Vector3(8.75f, 4.5f, -29.4f);
@@ -28,18 +31,25 @@ public class PuzzleOneDest : MonoBehaviour
                 
                 Destroy(FindObjectOfType<JammoPuzzleOneAI>());
                 FindObjectOfType<JammoDialogueTrigger>().enabled = true;
+                //anim.SetBool("isWalking", true);
                 Destroy(this);
                
                 break;
             case 1:
                 currentDest = new Vector3(-16.5f, 4.5f, -29.4f);
-
+                //anim.SetBool("isWalking", true);
                 break;
 
             
         }
 
         gameObject.transform.position = currentDest;
+
+        if(FindObjectOfType<JammoDialogueTrigger>().enabled == true)
+        {
+            anim.SetBool("isWalking", false);
+        }
+
 
     }
 }

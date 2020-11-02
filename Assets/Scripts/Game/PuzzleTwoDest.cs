@@ -6,6 +6,7 @@ public class PuzzleTwoDest : MonoBehaviour
 {
     private Vector3 currentDest;
     public int pivotPoint = 0;
+    public Animator anim;
 
     private void Start()
     {
@@ -55,5 +56,10 @@ public class PuzzleTwoDest : MonoBehaviour
         }
 
         gameObject.transform.position = currentDest;
+
+        if (FindObjectOfType<JammoDialogueTrigger>().enabled == true)
+        {
+            anim.SetBool("isWalking", false);
+        }
     }
 }
