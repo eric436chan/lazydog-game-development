@@ -7,14 +7,14 @@ public class Inventory : MonoBehaviour
 {
     //GameObject selected = null;
     public Sprite[] sprites;
+
     private GameObject inventory_slot0;
     private GameObject inventory_slot1;
     private GameObject inventory_slot2;
     private GameObject inventory_slot3;
     private GameObject inventory_slot4;
-    
-    private Image child = null;
 
+    private Image child = null;
 
     #region Singleton
 
@@ -70,7 +70,7 @@ public class Inventory : MonoBehaviour
 
     private void updateInventoryItem(string name)
     {
-        switch (inventory.Count-1)
+        switch (inventory.Count - 1)
         {
             case 0:
                 Debug.Log("Case 0");
@@ -145,6 +145,38 @@ public class Inventory : MonoBehaviour
 
     public void clearInventory()
     {
+        Color temp;
+
+        child = inventory_slot0.transform.GetChild(0).GetComponent<Image>();
+        child.sprite = null;
+        temp = child.color;
+        temp.a = 0f;
+        child.color = temp;
+
+        child = inventory_slot1.transform.GetChild(0).GetComponent<Image>();
+        child.sprite = null;
+        temp = child.color;
+        temp.a = 0f;
+        child.color = temp;
+
+        child = inventory_slot2.transform.GetChild(0).GetComponent<Image>();
+        child.sprite = null;
+        temp = child.color;
+        temp.a = 0f;
+        child.color = temp;
+
+        child = inventory_slot3.transform.GetChild(0).GetComponent<Image>();
+        child.sprite = null;
+        temp = child.color;
+        temp.a = 0f;
+        child.color = temp;
+
+        child = inventory_slot4.transform.GetChild(0).GetComponent<Image>();
+        child.sprite = null;
+        temp = child.color;
+        temp.a = 0f;
+        child.color = temp;
+
         inventory.Clear();
     }
 }

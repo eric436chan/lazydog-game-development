@@ -103,10 +103,14 @@ public class JammoDialogueManager : MonoBehaviour
         if (dialogueNumber == 3 && FindObjectOfType<JammoDialogueTrigger>().init)
         {
             IncrementDialogueNumber();
+            Inventory.instance.clearInventory();
         }
+
         if (dialogueNumber == 6 && FindObjectOfType<JammoDialogueTrigger>().init)
         {
+            IncrementDialogueNumber();
             Inventory.instance.clearInventory();
+            FindObjectOfType<AfterElevDest>().pivotPoint = 4;
         }
 
         FindObjectOfType<JammoDialogueTrigger>().init = false;
