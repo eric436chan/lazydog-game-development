@@ -27,7 +27,8 @@ public class RisingDoor : MonoBehaviour
         {
             jammo.transform.parent = null;
             jammo.GetComponent<NavMeshAgent>().enabled = true;
-            //add script to make jammo move again
+            FindObjectOfType<AfterElevDest>().enabled = true;
+            FindObjectOfType<JammoAfterElevAI>().enabled = true;
             Destroy(this);
         }
     }
