@@ -13,7 +13,6 @@ public class Inventory : MonoBehaviour
     private GameObject inventory_slot2;
     private GameObject inventory_slot3;
     private GameObject inventory_slot4;
-
     private Image child = null;
 
     #region Singleton

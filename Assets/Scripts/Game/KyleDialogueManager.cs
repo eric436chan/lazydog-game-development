@@ -9,6 +9,8 @@ public class KyleDialogueManager : MonoBehaviour
     public Text dialogueText;
     public Animator anim;
     public static KyleDialogueManager instance;
+    public GameObject inventoryPanel;
+    public bool open = false;
 
     #region Manager
 
@@ -40,12 +42,29 @@ public class KyleDialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         Debug.Log("Dialogue Started");
-        anim.SetBool("talking", true);
+        open = false;
+        if (!open)
+        {
+            inventoryPanel.SetActive(false);
+        }
+
+        anim.SetBool("kyleOpen", true);
         nameText.text = dialogue.name;
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
+        }
+
+        switch (dialogueNumber)
+        {
+            case 1:
+                AudioManager.instance.Play("KyleHello");
+                break;
+
+            default:
+                AudioManager.instance.Play("KyleWait");
+                break;
         }
         DisplayNextSentence();
     }
@@ -65,6 +84,7 @@ public class KyleDialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        open = true;
         StartCoroutine(Wait());
     }
 
@@ -80,7 +100,23 @@ public class KyleDialogueManager : MonoBehaviour
 
     private IEnumerator Wait()
     {
-        anim.SetBool("talking", false);
+        anim.SetBool("kyleOpen", false);
+        if (open && JammoDialogueManager.instance.open)
+        {
+            inventoryPanel.SetActive(true);
+        }
+
+        if (dialogueNumber == 2 && FindObjectOfType<KyleDialogueTrigger>().init)
+        {
+            FindObjectOfType<KyleLabDest>().enabled = true;
+            FindObjectOfType<KyleLabAI>().enabled = true;
+        }
+
+        if (dialogueNumber == 2 && JammoDialogueManager.instance.dialogueNumber == 9)
+        {
+            IncrementDialogueNumber();
+        }
+
         yield return new WaitForSeconds(0.5f);
         FindObjectOfType<KyleDialogueTrigger>().init = false;
     }
