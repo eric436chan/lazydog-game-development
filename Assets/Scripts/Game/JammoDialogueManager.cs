@@ -13,7 +13,7 @@ public class JammoDialogueManager : MonoBehaviour
     public Animator jammoAnim;
     public static JammoDialogueManager instance;
     public GameObject inventoryPanel;
-
+    public bool open = false;
     public Item key;
 
     #region Manager
@@ -45,7 +45,13 @@ public class JammoDialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        inventoryPanel.SetActive(false);
+        open = false;
+
+        if (!open)
+        {
+            inventoryPanel.SetActive(false);
+        }
+
         Debug.Log("Dialogue Started");
         anim.SetBool("isOpen", true);
         jammoAnim.SetBool("isTalking", true);
@@ -62,6 +68,10 @@ public class JammoDialogueManager : MonoBehaviour
                 break;
 
             case 3:
+                AudioManager.instance.Play("JammoSurprise");
+                break;
+
+            case 6:
                 AudioManager.instance.Play("JammoSurprise");
                 break;
 
@@ -87,6 +97,7 @@ public class JammoDialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        open = true;
         jammoAnim.SetBool("isTalking", false);
         StartCoroutine(Wait());
     }
@@ -104,7 +115,11 @@ public class JammoDialogueManager : MonoBehaviour
     private IEnumerator Wait()
     {
         anim.SetBool("isOpen", false);
-        inventoryPanel.SetActive(true);
+        if (open && KyleDialogueManager.instance.open)
+        {
+            inventoryPanel.SetActive(true);
+        }
+
         yield return new WaitForSeconds(0.5f);
 
         if (dialogueNumber == 1 && FindObjectOfType<JammoDialogueTrigger>().init)
@@ -124,6 +139,12 @@ public class JammoDialogueManager : MonoBehaviour
             IncrementDialogueNumber();
             Inventory.instance.clearInventory();
             FindObjectOfType<AfterElevDest>().pivotPoint = 4;
+        }
+
+        if (dialogueNumber == 9 && FindObjectOfType<JammoDialogueTrigger>().init)
+        {
+            FindObjectOfType<JammoLabDest>().enabled = true;
+            FindObjectOfType<JammoLabAI>().enabled = true;
         }
 
         FindObjectOfType<JammoDialogueTrigger>().init = false;

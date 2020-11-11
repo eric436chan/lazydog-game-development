@@ -14,6 +14,8 @@ public class JammoDialogueTrigger : MonoBehaviour
     public Dialogue dialogue4;
     public Dialogue dialogue5;
     public Dialogue dialogue6;
+    public Dialogue dialogue7;
+    public Dialogue dialogue8;
 
     #endregion Dialogue Holder
 
@@ -34,6 +36,20 @@ public class JammoDialogueTrigger : MonoBehaviour
                 {
                     switch (JammoDialogueManager.instance.dialogueNumber)
                     {
+                        case 8:
+                            dialogueToRead = dialogue8;
+                            JammoDialogueManager.instance.IncrementDialogueNumber();
+                            if (KyleDialogueManager.instance.dialogueNumber == 2)
+                            {
+                                KyleDialogueManager.instance.IncrementDialogueNumber();
+                            }
+                            break;
+
+                        case 7:
+                            dialogueToRead = dialogue7;
+                            JammoDialogueManager.instance.IncrementDialogueNumber();
+                            break;
+
                         case 6:
                             dialogueToRead = dialogue6;
 
