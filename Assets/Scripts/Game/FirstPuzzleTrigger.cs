@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class FirstPuzzleTrigger : MonoBehaviour
 {
-
     public CharacterController controller;
     public GameObject puzzle;
-    InteractableObjectImpl highlightScript;
-  
+    private InteractableObjectImpl highlightScript;
+    public Texture2D cursor;
     public float dist;
 
     private void Start()
@@ -16,26 +15,26 @@ public class FirstPuzzleTrigger : MonoBehaviour
         highlightScript = gameObject.GetComponent<InteractableObjectImpl>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
-       
         dist = Vector3.Distance(gameObject.transform.position, controller.transform.position);
+    }
 
-        if(dist <= 5f && Input.GetKeyDown(KeyCode.E))
+    private void OnMouseOver()
+    {
+        if (dist <= 5f)
         {
-            puzzle.SetActive(false);
-            JammoDialogueManager.instance.dialogueNumber = 3;
-            PuzzleManager.instance.isPuzzleOneFinished = true;
-            highlightScript.SetLevel(99);
-            FindObjectOfType<JammoPuzzleOneAI>().enabled = true;
-            FindObjectOfType<PuzzleOneDest>().enabled = true;
-            Destroy(this);
+            if (Input.GetMouseButtonDown(0))
+            {
+                puzzle.SetActive(false);
+                JammoDialogueManager.instance.dialogueNumber = 3;
+                PuzzleManager.instance.isPuzzleOneFinished = true;
+                highlightScript.SetLevel(99);
+                FindObjectOfType<JammoPuzzleOneAI>().enabled = true;
+                FindObjectOfType<PuzzleOneDest>().enabled = true;
+                gameObject.tag = "Untagged";
+                Destroy(this);
+            }
         }
-
-       
-
-
     }
 }

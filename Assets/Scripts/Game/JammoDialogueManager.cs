@@ -49,12 +49,25 @@ public class JammoDialogueManager : MonoBehaviour
         Debug.Log("Dialogue Started");
         anim.SetBool("isOpen", true);
         jammoAnim.SetBool("isTalking", true);
-
         nameText.text = dialogue.name;
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
+        }
+        switch (dialogueNumber)
+        {
+            case 1:
+                AudioManager.instance.Play("JammoHello");
+                break;
+
+            case 3:
+                AudioManager.instance.Play("JammoSurprise");
+                break;
+
+            default:
+                AudioManager.instance.Play("JammoWait");
+                break;
         }
         DisplayNextSentence();
     }

@@ -13,10 +13,13 @@ public class SecondPuzzleConsoleTrigger : MonoBehaviour
     private void Update()
     {
         dist = Vector3.Distance(controller.transform.position, gameObject.transform.position);
+    }
 
+    private void OnMouseOver()
+    {
         if (dist <= 5f)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetMouseButtonDown(0))
             {
                 if (PuzzleManager.instance.puzzleTwoFixed == 3)
                 {

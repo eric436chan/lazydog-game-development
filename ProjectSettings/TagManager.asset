@@ -8,6 +8,8 @@ TagManager:
   - Test
   - PlayerEyes
   - Key Item
+  - Door
+  - Puzzle
   layers:
   - Default
   - TransparentFX
