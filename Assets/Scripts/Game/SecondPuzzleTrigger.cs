@@ -22,14 +22,22 @@ public class SecondPuzzleTrigger : MonoBehaviour
     private void Update()
     {
         dist = Vector3.Distance(controller.transform.position, gameObject.transform.position);
+    }
 
+    private void OnMouseOver()
+    {
         if (dist <= 5f)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetMouseButtonDown(0))
             {
-                if (!Inventory.instance.inventory.Contains(keyItem))
+                if (Inventory.instance.inventory.Count == 0)
                 {
                     infoText.text = "I need a tool to fix this...";
+                    textAnim.Play("Out");
+                }
+                else if (!Inventory.instance.inventory.Contains(keyItem))
+                {
+                    infoText.text = "This is not the correct tool...";
                     textAnim.Play("Out");
                 }
                 else
