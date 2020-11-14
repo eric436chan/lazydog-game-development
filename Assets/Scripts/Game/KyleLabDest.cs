@@ -31,16 +31,19 @@ public class KyleLabDest : MonoBehaviour
         switch (kylePivotPoint)
         {
             case 3:
+                anim.SetBool("isWalking", false);
                 FindObjectOfType<KyleDialogueTrigger>().enabled = true;
                 Destroy(FindObjectOfType<KyleLabAI>());
                 Destroy(this);
                 break;
 
             case 2:
+                anim.SetBool("isWalking", true);
                 currentDest = new Vector3(-107f, 5.3f, -150f);
                 break;
 
             case 1:
+                anim.SetBool("isWalking", true);
                 currentDest = new Vector3(-107f, 5.3f, -130f);
 
                 break;

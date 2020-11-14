@@ -7,7 +7,8 @@ public class KyleDialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
-    public Animator anim;
+    public Animator dialogueAnim;
+    public Animator kyleAnim;
     public static KyleDialogueManager instance;
     public GameObject inventoryPanel;
     public bool open = false;
@@ -47,8 +48,8 @@ public class KyleDialogueManager : MonoBehaviour
         {
             inventoryPanel.SetActive(false);
         }
-
-        anim.SetBool("kyleOpen", true);
+        kyleAnim.SetBool("isTalking", true);
+        dialogueAnim.SetBool("kyleOpen", true);
         nameText.text = dialogue.name;
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
@@ -84,6 +85,7 @@ public class KyleDialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        kyleAnim.SetBool("isTalking", false);
         open = true;
         StartCoroutine(Wait());
     }
@@ -100,7 +102,7 @@ public class KyleDialogueManager : MonoBehaviour
 
     private IEnumerator Wait()
     {
-        anim.SetBool("kyleOpen", false);
+        dialogueAnim.SetBool("kyleOpen", false);
         if (open && JammoDialogueManager.instance.open)
         {
             inventoryPanel.SetActive(true);
@@ -110,6 +112,7 @@ public class KyleDialogueManager : MonoBehaviour
         {
             FindObjectOfType<KyleLabDest>().enabled = true;
             FindObjectOfType<KyleLabAI>().enabled = true;
+            IncrementDialogueNumber();
         }
 
         if (dialogueNumber == 2 && JammoDialogueManager.instance.dialogueNumber == 9)
