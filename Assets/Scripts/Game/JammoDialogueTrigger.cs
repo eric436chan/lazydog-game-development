@@ -61,6 +61,8 @@ public class JammoDialogueTrigger : MonoBehaviour
                         case 4:
                             dialogueToRead = dialogue4;
                             JammoDialogueManager.instance.IncrementDialogueNumber();
+                            FindObjectOfType<PuzzleTwoDest>().enabled = true;
+                            FindObjectOfType<JammoPuzzleTwoAI>().enabled = true;
                             break;
 
                         case 3:
