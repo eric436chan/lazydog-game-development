@@ -54,7 +54,7 @@ public class KyleDialogueTrigger : MonoBehaviour
 
                         case 1:
                             dialogueToRead = dialogue1;
-                            KyleDialogueManager.instance.IncrementDialogueNumber();
+
                             break;
                     }
                     TriggerDialogue(dialogueToRead);

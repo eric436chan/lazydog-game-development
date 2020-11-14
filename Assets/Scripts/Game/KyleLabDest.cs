@@ -12,7 +12,7 @@ public class KyleLabDest : MonoBehaviour
     private void Start()
     {
         kylePivotPoint = 0;
-        gameObject.transform.position = new Vector3(-126.5f, 5.3f, -130f);
+        gameObject.transform.position = new Vector3(-130f, 5.3f, -130f);
         currentDest = gameObject.transform.position;
     }
 

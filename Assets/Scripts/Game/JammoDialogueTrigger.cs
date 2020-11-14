@@ -39,10 +39,7 @@ public class JammoDialogueTrigger : MonoBehaviour
                         case 8:
                             dialogueToRead = dialogue8;
                             JammoDialogueManager.instance.IncrementDialogueNumber();
-                            if (KyleDialogueManager.instance.dialogueNumber == 2)
-                            {
-                                KyleDialogueManager.instance.IncrementDialogueNumber();
-                            }
+
                             break;
 
                         case 7:

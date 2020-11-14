@@ -108,7 +108,7 @@ public class KyleDialogueManager : MonoBehaviour
             inventoryPanel.SetActive(true);
         }
 
-        if (dialogueNumber == 2 && FindObjectOfType<KyleDialogueTrigger>().init)
+        if (dialogueNumber == 1 && FindObjectOfType<KyleDialogueTrigger>().init)
         {
             FindObjectOfType<KyleLabDest>().enabled = true;
             FindObjectOfType<KyleLabAI>().enabled = true;

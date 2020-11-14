@@ -20,7 +20,7 @@ public class JammoPuzzleTwoAI : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (puzzleManager.puzzleTwoFixed == 3 && JammoDialogueManager.instance.dialogueNumber == 5)
+        if (puzzleManager.puzzleTwoFixed == 3)
         {
             FindObjectOfType<JammoDialogueTrigger>().enabled = false;
             agent.SetDestination(dest.transform.position);
