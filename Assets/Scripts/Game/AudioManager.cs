@@ -29,6 +29,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        instance.Play("Theme");
+    }
+
     public void Play(string name)
     {
         Sound soundToPlay = null;
