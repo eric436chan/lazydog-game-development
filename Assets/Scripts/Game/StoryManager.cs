@@ -34,7 +34,9 @@ public class StoryManager : MonoBehaviour
     {
         dateText.text = storyDialogue.date;
         storyText.text = storyDialogue.story;
-        Time.timeScale = 0f;
+        FindObjectOfType<MouseLook>().enabled = false;
+        FindObjectOfType<FirstPersonPlayer>().enabled = false;
+        FindObjectOfType<PauseMenu>().enabled = false;
         Cursor.lockState = CursorLockMode.Confined;
 
         bookPanel.SetActive(true);
@@ -43,7 +45,9 @@ public class StoryManager : MonoBehaviour
     public void EndStory()
     {
         bookPanel.SetActive(false);
-        Time.timeScale = 1f;
+        FindObjectOfType<MouseLook>().enabled = true;
+        FindObjectOfType<FirstPersonPlayer>().enabled = true;
+        FindObjectOfType<PauseMenu>().enabled = true;
         Cursor.lockState = CursorLockMode.Locked;
     }
 }

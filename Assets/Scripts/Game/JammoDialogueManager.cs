@@ -75,6 +75,9 @@ public class JammoDialogueManager : MonoBehaviour
                 AudioManager.instance.Play("JammoSurprise");
                 break;
 
+            case 10:
+                break;
+
             default:
                 AudioManager.instance.Play("JammoWait");
                 break;
@@ -147,6 +150,16 @@ public class JammoDialogueManager : MonoBehaviour
             FindObjectOfType<JammoLabAI>().enabled = true;
         }
 
+        if (dialogueNumber == 10 && FindObjectOfType<FinalDialogue>().init)
+        {
+            Debug.Log("Game ends");
+            Application.Quit();
+        }
+
         FindObjectOfType<JammoDialogueTrigger>().init = false;
+        FindObjectOfType<MouseLook>().enabled = true;
+        FindObjectOfType<FirstPersonPlayer>().enabled = true;
+        FindObjectOfType<PauseMenu>().enabled = true;
+        //FindObjectOfType<FinalDialogue>().init = false;
     }
 }

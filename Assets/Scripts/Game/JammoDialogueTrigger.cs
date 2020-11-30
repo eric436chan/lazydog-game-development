@@ -32,6 +32,9 @@ public class JammoDialogueTrigger : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                FindObjectOfType<MouseLook>().enabled = false;
+                FindObjectOfType<FirstPersonPlayer>().enabled = false;
+                FindObjectOfType<PauseMenu>().enabled = false;
                 if (!init)
                 {
                     switch (JammoDialogueManager.instance.dialogueNumber)
@@ -86,10 +89,6 @@ public class JammoDialogueTrigger : MonoBehaviour
                     JammoDialogueManager.instance.DisplayNextSentence();
                 }
             }
-        }
-        else
-        {
-            JammoDialogueManager.instance.EndDialogue();
         }
     }
 

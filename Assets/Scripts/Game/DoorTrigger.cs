@@ -28,21 +28,18 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (dist <= 5f)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Inventory.instance.inventory.Contains(key))
             {
-                if (Inventory.instance.inventory.Contains(key))
-                {
-                    isOpen = !isOpen;
-                    anim.SetBool("IsOpen", isOpen);
-                    box.enabled = !isOpen;
-                }
-                else
-                {
-                    fadingText.text = "Door is locked...";
-                    fadeAnim.Play("Out");
-                }
+                isOpen = !isOpen;
+                anim.SetBool("IsOpen", isOpen);
+                box.enabled = !isOpen;
+            }
+            else
+            {
+                fadingText.text = "Door is locked...";
+                fadeAnim.Play("Out");
             }
         }
     }
