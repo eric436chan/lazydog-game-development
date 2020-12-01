@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class JammoDialogueManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class JammoDialogueManager : MonoBehaviour
     public GameObject inventoryPanel;
     public bool open = false;
     public Item key;
+
+    public Animator fadePanelAnim;
 
     #region Manager
 
@@ -115,6 +118,14 @@ public class JammoDialogueManager : MonoBehaviour
         }
     }
 
+    private IEnumerator Fade()
+    {
+        fadePanelAnim.SetBool("End", true);
+        Cursor.visible = false;
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(2);
+    }
+
     private IEnumerator Wait()
     {
         anim.SetBool("isOpen", false);
@@ -153,7 +164,7 @@ public class JammoDialogueManager : MonoBehaviour
         if (dialogueNumber == 10 && FindObjectOfType<FinalDialogue>().init)
         {
             Debug.Log("Game ends");
-            Application.Quit();
+            StartCoroutine(Fade());
         }
 
         FindObjectOfType<JammoDialogueTrigger>().init = false;

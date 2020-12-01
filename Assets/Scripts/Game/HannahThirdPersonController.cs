@@ -8,19 +8,19 @@ public class ThirdPersonController : MonoBehaviour
     public Transform camera;
     public Animator anim;
 
-    float speed;
+    private float speed;
     public float runSpeed = 10f;
     public float walkspeed = 6f;
     public float jumpspeed = 2f;
     public float turnSmooth = 0.1f;
-    float turnSpeed;
+    private float turnSpeed;
 
     public float gravity = -9.8f;
     public Transform groundCheck;
     public float groundDist = 0.4f;
     public LayerMask groundLayer;
-    bool isGrounded;
-    Vector3 velocity;
+    private bool isGrounded;
+    private Vector3 velocity;
 
     private float inputH;
     private float inputV;
@@ -35,11 +35,10 @@ public class ThirdPersonController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-
 
         //if (Input.GetKeyDown("1") && !isSitting)
         //{
@@ -65,7 +64,6 @@ public class ThirdPersonController : MonoBehaviour
             anim.SetBool("run", false);
         }
 
-
         anim.SetFloat("inputH", horizontal);
         anim.SetFloat("inputV", vertical);
 
@@ -90,7 +88,6 @@ public class ThirdPersonController : MonoBehaviour
             //    anim.SetBool("run", false);
             //}
 
-            
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
         if (isGrounded && velocity.y <= 0f)
