@@ -11,6 +11,7 @@ TagManager:
   - Door
   - Puzzle
   - Kyle
+  - Burger
   layers:
   - Default
   - TransparentFX
