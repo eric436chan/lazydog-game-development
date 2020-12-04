@@ -7,22 +7,37 @@ public class GameScore : MonoBehaviour
 
     public static GameScore instance;
 
-    public int miniGameScore;
+    public int burgers;
+    public int waffles;
+    public int cake;
 
     void Start()
     {
-        miniGameScore = 0; 
+        burgers = 0;
+        cake = 0;
+        waffles = 0;
     }
 
     void Update()
     {
-        GameObject[] burgers = GameObject.FindGameObjectsWithTag("Burger");
-        int numberOfBurgers = burgers.Length;
+        GameObject[] allBurgers = GameObject.FindGameObjectsWithTag("Burger");
+        int numOfBurgers = allBurgers.Length;
 
-        if (miniGameScore >= numberOfBurgers)
+        GameObject[] allCake = GameObject.FindGameObjectsWithTag("Cake");
+        int numOfCake = allCake.Length;
+
+        GameObject[] allWaffles = GameObject.FindGameObjectsWithTag("Waffle");
+        int numOfWaffles = allWaffles.Length;
+
+        if (burgers >= numOfBurgers && cake >= numOfCake && waffles >= numOfWaffles)
         {
             //end mini game
         }
+    }
+
+    public void IncrementGameScore()
+    {
+
     }
 
     private void Awake()
@@ -35,11 +50,4 @@ public class GameScore : MonoBehaviour
         instance = this;
     }
 
-    int gameScore = 0;
-
-    public void IncrementGameScore()
-    {
-        gameScore++;
-        Debug.Log("Current game score: " + gameScore);
-    }
 }

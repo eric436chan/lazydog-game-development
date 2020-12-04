@@ -12,6 +12,9 @@ TagManager:
   - Puzzle
   - Kyle
   - Burger
+  - BurgerCrate
+  - Waffle
+  - Cake
   layers:
   - Default
   - TransparentFX

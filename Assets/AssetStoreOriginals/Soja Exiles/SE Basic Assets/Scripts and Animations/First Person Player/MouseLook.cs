@@ -32,7 +32,7 @@ public class MouseLook : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 5f))
         {
-            if (hit.collider.tag == "Door" || hit.collider.tag == "Puzzle" || hit.collider.tag == "Key Item" || hit.collider.tag == "Burger")
+            if (hit.collider.tag == "Door" || hit.collider.tag == "Puzzle" || hit.collider.tag == "Key Item" || hit.collider.tag == "Burger" || hit.collider.tag == "Waffle" || hit.collider.tag == "Cake")
             {
                 Cursor.visible = true;
             }

@@ -32,6 +32,11 @@ public class JammoDialogueTrigger : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                /*Vector3 playerPos = GameObject.FindGameObjectsWithTag("Player")[0].transform.position;
+                Vector3 npcPos = GameObject.FindGameObjectsWithTag("Jammo")[0].transform.position; ;
+                Vector3 delta = new Vector3(playerPos.x - npcPos.x, 0.0f, playerPos.z - npcPos.z);
+*/
+                //Quaternion rotation = Quaternion.LookRotation(delta);
                 FindObjectOfType<MouseLook>().enabled = false;
                 FindObjectOfType<FirstPersonPlayer>().enabled = false;
                 FindObjectOfType<PauseMenu>().enabled = false;

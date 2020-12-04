@@ -30,6 +30,12 @@ public class KyleDialogueTrigger : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                /*Vector3 playerPos = GameObject.FindGameObjectsWithTag("Player")[0].transform.position;
+                Vector3 npcPos = GameObject.FindGameObjectsWithTag("Kyle")[0].transform.position; ;
+                Vector3 delta = new Vector3(playerPos.x - npcPos.x, 0.0f, playerPos.z - npcPos.z);
+
+                Quaternion rotation = Quaternion.LookRotation(delta);
+*/
                 if (!init)
                 {
                     switch (KyleDialogueManager.instance.dialogueNumber)
