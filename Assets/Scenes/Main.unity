@@ -1327,7 +1327,7 @@ RectTransform:
   - {fileID: 1433571964}
   - {fileID: 1978225258}
   m_Father: {fileID: 655101151}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11646,7 +11646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeAnim: {fileID: 1184641311}
   puzzleCharacter: 2
-  fadingText: {fileID: 0}
+  fadingText: {fileID: 1184641308}
 --- !u!1001 &352401898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15604,7 +15604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeAnim: {fileID: 1184641311}
   puzzleCharacter: 4
-  fadingText: {fileID: 0}
+  fadingText: {fileID: 1184641308}
 --- !u!1 &470569493 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 140742, guid: 4707581494a4031438fbad227829f0db, type: 3}
@@ -17415,7 +17415,7 @@ RectTransform:
   - {fileID: 1940481283}
   - {fileID: 2094006538}
   m_Father: {fileID: 655101151}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -20133,7 +20133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeAnim: {fileID: 1184641311}
   puzzleCharacter: 3
-  fadingText: {fileID: 0}
+  fadingText: {fileID: 1184641308}
 --- !u!1 &608521526 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 130250, guid: 4707581494a4031438fbad227829f0db, type: 3}
@@ -22101,7 +22101,7 @@ MonoBehaviour:
   controller: {fileID: 811928940}
   anim: {fileID: 638920012}
   textAnim: {fileID: 1184641311}
-  infoText: {fileID: 0}
+  infoText: {fileID: 1184641308}
 --- !u!95 &638920012 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9546954, guid: 820591594dcfa124d8a9c5d016d6c22c, type: 3}
@@ -22619,10 +22619,10 @@ RectTransform:
   - {fileID: 1994930510}
   - {fileID: 484016115}
   - {fileID: 1195448432}
+  - {fileID: 1348252404}
   - {fileID: 517882706}
   - {fileID: 44828766}
   - {fileID: 1681724333}
-  - {fileID: 1348252404}
   - {fileID: 721961849}
   m_Father: {fileID: 955856769}
   m_RootOrder: 0
@@ -28576,7 +28576,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811928938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a36b1f9d7fc0f574a961fab61cbe0af3, type: 3}
   m_Name: 
@@ -38308,38 +38308,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: faa8b5b910f46e64e98b2a548ac7a277, type: 3}
   m_PrefabInstance: {fileID: 415164001}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1085299033
-MonoBehaviour:
+--- !u!136 &1085299030
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085299029}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9da79de4194ad9945b6b2b1c112e5c47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1091791710}
-  OnBeginDrag:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnEndDrag:
-    m_PersistentCalls:
-      m_Calls: []
-  speed: 7
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.112920016
+  m_Height: 0.19040614
+  m_Direction: 1
+  m_Center: {x: -0.000000007450581, y: 0.09520307, z: -0.0000000037252903}
+--- !u!54 &1085299031
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085299029}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0.5
+  m_AngularDrag: 0.5
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &1085299034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48389,7 +48387,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 655101151}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -50626,7 +50624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeAnim: {fileID: 1184641311}
   puzzleCharacter: 1
-  fadingText: {fileID: 0}
+  fadingText: {fileID: 1184641308}
 --- !u!1001 &1409825105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60415,7 +60413,7 @@ RectTransform:
   - {fileID: 1733773639}
   - {fileID: 323733440}
   m_Father: {fileID: 655101151}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
