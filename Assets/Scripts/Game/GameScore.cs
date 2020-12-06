@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class GameScore : MonoBehaviour
 {
-
     public static GameScore instance;
 
     public int burgers;
     public int waffles;
     public int cake;
 
-    void Start()
+    private void Start()
     {
         burgers = 0;
         cake = 0;
         waffles = 0;
     }
 
-    void Update()
+    private void Update()
     {
         GameObject[] allBurgers = GameObject.FindGameObjectsWithTag("Burger");
         int numOfBurgers = allBurgers.Length;
@@ -32,22 +31,22 @@ public class GameScore : MonoBehaviour
         if (burgers >= numOfBurgers && cake >= numOfCake && waffles >= numOfWaffles)
         {
             //end mini game
+            KyleDialogueManager.instance.dialogueNumber = 5;
+            Destroy(this);
         }
     }
 
     public void IncrementGameScore()
     {
-
     }
 
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             return;
         }
 
         instance = this;
     }
-
 }

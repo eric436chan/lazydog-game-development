@@ -19,6 +19,9 @@ public class JammoDialogueManager : MonoBehaviour
 
     public Animator fadePanelAnim;
 
+    public CharacterController controller;
+    public GameObject npc;
+
     #region Manager
 
     private void Awake()
@@ -54,6 +57,9 @@ public class JammoDialogueManager : MonoBehaviour
         {
             inventoryPanel.SetActive(false);
         }
+
+        Vector3 delta = new Vector3(controller.transform.position.x - npc.transform.position.x, 0f, controller.transform.position.z - npc.transform.position.z);
+        npc.transform.rotation = Quaternion.LookRotation(delta);
 
         Debug.Log("Dialogue Started");
         anim.SetBool("isOpen", true);

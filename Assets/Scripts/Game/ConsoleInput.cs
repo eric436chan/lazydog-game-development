@@ -90,7 +90,7 @@ public class ConsoleInput : MonoBehaviour
     private IEnumerator CorrectCode()
     {
         yield return new WaitForSeconds(0.5f);
-        KyleDialogueManager.instance.dialogueNumber = 5;
+        KyleDialogueManager.instance.dialogueNumber = 7;
         Resume();
     }
 }

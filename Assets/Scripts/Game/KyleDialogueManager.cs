@@ -13,6 +13,9 @@ public class KyleDialogueManager : MonoBehaviour
     public GameObject inventoryPanel;
     public bool open = false;
 
+    public CharacterController controller;
+    public GameObject npc;
+
     #region Manager
 
     private void Awake()
@@ -48,6 +51,14 @@ public class KyleDialogueManager : MonoBehaviour
         {
             inventoryPanel.SetActive(false);
         }
+
+        //Vector3 delta = new Vector3(controller.transform.position.x - npc.transform.position.x, 0f, controller.transform.position.z - npc.transform.position.z);
+        //Quaternion rotation = Quaternion.LookRotation(delta);
+        //while (npc.transform.rotation != rotation)
+        //{
+        //    npc.transform.rotation = Quaternion.Lerp(npc.transform.rotation, rotation, Time.time * 0.1f);
+        //}
+
         kyleAnim.SetBool("isTalking", true);
         dialogueAnim.SetBool("kyleOpen", true);
         nameText.text = dialogue.name;
@@ -121,6 +132,9 @@ public class KyleDialogueManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
-        FindObjectOfType<KyleDialogueTrigger>().init = false;
+        FindObjectOfType<JammoDialogueTrigger>().init = false;
+        FindObjectOfType<MouseLook>().enabled = true;
+        FindObjectOfType<FirstPersonPlayer>().enabled = true;
+        FindObjectOfType<PauseMenu>().enabled = true;
     }
 }

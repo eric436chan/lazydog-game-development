@@ -12076,10 +12076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a308c5178298e49bc98fd89e07e75b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbody: {fileID: 0}
-  controller: {fileID: 0}
-  script: {fileID: 0}
-  guiText: {fileID: 0}
 --- !u!4 &345406989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4969002113540464, guid: 5d5eb8ad08591e445adfb4241b982f84, type: 3}
@@ -20438,6 +20434,8 @@ MonoBehaviour:
   open: 0
   key: {fileID: 11400000, guid: cd492739f6a364b44b980312d2405873, type: 2}
   fadePanelAnim: {fileID: 1348252407}
+  controller: {fileID: 811928940}
+  npc: {fileID: 1787910522}
   dialogueNumber: 1
 --- !u!1 &568541432 stripped
 GameObject:
@@ -23742,6 +23740,8 @@ MonoBehaviour:
   kyleAnim: {fileID: 1890255771}
   inventoryPanel: {fileID: 1994930506}
   open: 0
+  controller: {fileID: 811928940}
+  npc: {fileID: 1890255767}
   dialogueNumber: 1
 --- !u!1 &661058577 stripped
 GameObject:
@@ -38199,10 +38199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a308c5178298e49bc98fd89e07e75b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbody: {fileID: 0}
-  controller: {fileID: 0}
-  script: {fileID: 0}
-  guiText: {fileID: 0}
 --- !u!65 &1019830953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38617,7 +38613,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5a5c0dc8136177242aa0c895324f0858, type: 2}
+  - {fileID: 2100000, guid: 07b19e5192b2e9a4084fee54b8f008d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73242,17 +73238,31 @@ MonoBehaviour:
     - I'm sure Jammo has told you already but this lab is falling apart.
     - I'm making preparations to leave and for that, I'm going to need your help.
     - I am ordering a full shutdown of this facility.
-    - In order to do that, we need to enter the correct shutdown code.
+    - But first we must gather supplies for the trip outside.
+    - Outside this room, there are a few crates that need to be sorted.
+    - Feel free to move the objects around using your mouse.
+    - Once the crates are sorted, come speak to me again.
+  dialogue4:
+    name: Kyle
+    sentences:
+    - Are you still sorting the crates?
+    - Remember you can use your mouse to move the objects around.
+    - I'll be waiting here for you.
+  dialogue5:
+    name: Kyle
+    sentences:
+    - Good to see they've been sorted.
+    - Next, I am ordering a full shutdown of this facility.
     - The code is hidden throughout multiple bulletinboards as a safety measure.
     - Can you get the code for me?
     - You can enter the code using the computers in my room once you have it.
-  dialogue4:
+  dialogue6:
     name: Kyle
     sentences:
     - Are you still trying to figure out the code?
     - Remember to check the bulletin boards.
     - You can enter the code using the computers in my room once you have it.
-  dialogue5:
+  dialogue7:
     name: Kyle
     sentences:
     - Great! You were able to figure out the code.
@@ -74066,10 +74076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a308c5178298e49bc98fd89e07e75b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbody: {fileID: 0}
-  controller: {fileID: 0}
-  script: {fileID: 0}
-  guiText: {fileID: 0}
 --- !u!65 &1930373115
 BoxCollider:
   m_ObjectHideFlags: 0

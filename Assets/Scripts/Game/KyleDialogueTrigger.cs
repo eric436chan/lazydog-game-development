@@ -13,6 +13,8 @@ public class KyleDialogueTrigger : MonoBehaviour
     public Dialogue dialogue3;
     public Dialogue dialogue4;
     public Dialogue dialogue5;
+    public Dialogue dialogue6;
+    public Dialogue dialogue7;
 
     #endregion Dialogues
 
@@ -35,13 +37,32 @@ public class KyleDialogueTrigger : MonoBehaviour
                 Vector3 delta = new Vector3(playerPos.x - npcPos.x, 0.0f, playerPos.z - npcPos.z);
 
                 Quaternion rotation = Quaternion.LookRotation(delta);
-*/
+
+                */
+
+                Vector3 delta = new Vector3(controller.transform.position.x - transform.position.x, 0f, controller.transform.position.z - transform.position.z);
+                Quaternion rotation = Quaternion.LookRotation(delta);
+
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.time * 60f);
+
+                FindObjectOfType<MouseLook>().enabled = false;
+                FindObjectOfType<FirstPersonPlayer>().enabled = false;
+                FindObjectOfType<PauseMenu>().enabled = false;
                 if (!init)
                 {
                     switch (KyleDialogueManager.instance.dialogueNumber)
                     {
+                        case 7:
+                            dialogueToRead = dialogue7;
+                            break;
+
+                        case 6:
+                            dialogueToRead = dialogue6;
+                            break;
+
                         case 5:
                             dialogueToRead = dialogue5;
+                            KyleDialogueManager.instance.IncrementDialogueNumber();
                             break;
 
                         case 4:
