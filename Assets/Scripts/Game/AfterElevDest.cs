@@ -48,7 +48,7 @@ public class AfterElevDest : MonoBehaviour
                 FindObjectOfType<JammoDialogueTrigger>().enabled = true;
                 anim.SetBool("isWalking", false);
                 Destroy(FindObjectOfType<JammoAfterElevAI>());
-                JammoDialogueManager.instance.IncrementDialogueNumber();
+                JammoDialogueManager.instance.dialogueNumber = 6;
                 pivotPoint++;
                 break;
         }

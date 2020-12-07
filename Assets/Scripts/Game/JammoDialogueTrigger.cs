@@ -75,7 +75,6 @@ public class JammoDialogueTrigger : MonoBehaviour
 
                         case 3:
                             dialogueToRead = dialogue3;
-
                             break;
 
                         case 2:

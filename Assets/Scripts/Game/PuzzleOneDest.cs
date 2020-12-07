@@ -30,6 +30,8 @@ public class PuzzleOneDest : MonoBehaviour
             case 2:
 
                 Destroy(FindObjectOfType<JammoPuzzleOneAI>());
+                FindObjectOfType<PuzzleTwoDest>().enabled = true;
+                FindObjectOfType<JammoPuzzleTwoAI>().enabled = true;
                 FindObjectOfType<JammoDialogueTrigger>().enabled = true;
                 FindObjectOfType<JammoPuzzleOneAI>().anim.SetBool("isWalking", false);
                 //anim.SetBool("isWalking", true);

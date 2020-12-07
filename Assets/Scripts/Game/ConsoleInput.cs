@@ -23,7 +23,13 @@ public class ConsoleInput : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Pause();
+            if (KyleDialogueManager.instance.dialogueNumber != 5 || KyleDialogueManager.instance.dialogueNumber != 6)
+            {
+            }
+            else
+            {
+                Pause();
+            }
         }
     }
 

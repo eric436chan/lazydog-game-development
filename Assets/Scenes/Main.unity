@@ -20480,7 +20480,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 568541432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134129fd7252a734193e3951e6959bce, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e1ffc715f3dd0743a1252888ca31319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 811928940}
@@ -20744,7 +20744,7 @@ MonoBehaviour:
   puzzle: {fileID: 1521908273}
   keyItem: {fileID: 11400000, guid: 9a4e04d78958ad149a42d05e9530cfc7, type: 2}
   textAnim: {fileID: 1184641311}
-  infoText: {fileID: 0}
+  infoText: {fileID: 1184641308}
 --- !u!114 &583371656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21837,7 +21837,7 @@ MonoBehaviour:
   puzzle: {fileID: 283572549}
   keyItem: {fileID: 11400000, guid: 9a4e04d78958ad149a42d05e9530cfc7, type: 2}
   textAnim: {fileID: 1184641311}
-  infoText: {fileID: 0}
+  infoText: {fileID: 1184641308}
 --- !u!1001 &622914602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30127,7 +30127,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811928938}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a36b1f9d7fc0f574a961fab61cbe0af3, type: 3}
   m_Name: 
@@ -40460,7 +40460,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1085299029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134129fd7252a734193e3951e6959bce, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e1ffc715f3dd0743a1252888ca31319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 811928940}
@@ -46245,7 +46245,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1241866879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134129fd7252a734193e3951e6959bce, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e1ffc715f3dd0743a1252888ca31319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 811928940}
@@ -61800,7 +61800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 811928940}
   textAnim: {fileID: 1184641311}
-  infoText: {fileID: 0}
+  infoText: {fileID: 1184641308}
 --- !u!64 &1612285917
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -66606,7 +66606,7 @@ MonoBehaviour:
   puzzle: {fileID: 1428046691}
   keyItem: {fileID: 11400000, guid: 9a4e04d78958ad149a42d05e9530cfc7, type: 2}
   textAnim: {fileID: 1184641311}
-  infoText: {fileID: 0}
+  infoText: {fileID: 1184641308}
 --- !u!1001 &1759737094
 PrefabInstance:
   m_ObjectHideFlags: 0

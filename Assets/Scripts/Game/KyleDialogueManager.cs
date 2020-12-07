@@ -47,10 +47,10 @@ public class KyleDialogueManager : MonoBehaviour
     {
         Debug.Log("Dialogue Started");
         open = false;
-        if (!open)
-        {
-            inventoryPanel.SetActive(false);
-        }
+        //if (!open)
+        //{
+        //    inventoryPanel.SetActive(false);
+        //}
 
         //Vector3 delta = new Vector3(controller.transform.position.x - npc.transform.position.x, 0f, controller.transform.position.z - npc.transform.position.z);
         //Quaternion rotation = Quaternion.LookRotation(delta);
@@ -114,10 +114,10 @@ public class KyleDialogueManager : MonoBehaviour
     private IEnumerator Wait()
     {
         dialogueAnim.SetBool("kyleOpen", false);
-        if (open && JammoDialogueManager.instance.open)
-        {
-            inventoryPanel.SetActive(true);
-        }
+        //if (open && JammoDialogueManager.instance.open)
+        //{
+        //    inventoryPanel.SetActive(true);
+        //}
 
         if (dialogueNumber == 1 && FindObjectOfType<KyleDialogueTrigger>().init)
         {

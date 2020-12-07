@@ -24,8 +24,11 @@ public class AfterElevDoor : MonoBehaviour
 
         if (dist <= 5f || dist2 <= 5f)
         {
-            anim.SetBool("isOpen", true);
-            gameObject.GetComponent<BoxCollider>().enabled = false;
+            if (JammoDialogueManager.instance.dialogueNumber >= 6)
+            {
+                anim.SetBool("isOpen", true);
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
         }
         else
         {

@@ -93,10 +93,6 @@ public class KyleDialogueTrigger : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            KyleDialogueManager.instance.EndDialogue();
-        }
     }
 
     public void TriggerDialogue(Dialogue dialogue)

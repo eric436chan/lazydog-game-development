@@ -53,13 +53,13 @@ public class JammoDialogueManager : MonoBehaviour
     {
         open = false;
 
-        if (!open)
-        {
-            inventoryPanel.SetActive(false);
-        }
+        //if (!open)
+        //{
+        //    inventoryPanel.SetActive(false);
+        //}
 
-        Vector3 delta = new Vector3(controller.transform.position.x - npc.transform.position.x, 0f, controller.transform.position.z - npc.transform.position.z);
-        npc.transform.rotation = Quaternion.LookRotation(delta);
+        //Vector3 delta = new Vector3(controller.transform.position.x - npc.transform.position.x, 0f, controller.transform.position.z - npc.transform.position.z);
+        //npc.transform.rotation = Quaternion.LookRotation(delta);
 
         Debug.Log("Dialogue Started");
         anim.SetBool("isOpen", true);
@@ -135,10 +135,10 @@ public class JammoDialogueManager : MonoBehaviour
     private IEnumerator Wait()
     {
         anim.SetBool("isOpen", false);
-        if (open && KyleDialogueManager.instance.open)
-        {
-            inventoryPanel.SetActive(true);
-        }
+        //if (open && KyleDialogueManager.instance.open)
+        //{
+        //    inventoryPanel.SetActive(true);
+        //}
 
         yield return new WaitForSeconds(0.5f);
 

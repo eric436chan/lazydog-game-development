@@ -31,6 +31,7 @@ public class PuzzleTwoDest : MonoBehaviour
                 anim.SetBool("isWalking", false);
                 Destroy(FindObjectOfType<JammoPuzzleTwoAI>());
                 FindObjectOfType<JammoDialogueTrigger>().enabled = true;
+                JammoDialogueManager.instance.dialogueNumber = 6;
 
                 break;
 
