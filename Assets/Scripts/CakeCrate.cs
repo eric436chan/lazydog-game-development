@@ -17,8 +17,8 @@ public class CakeCrate : MonoBehaviour
     {
         controller = GameObject.Find("GameManager");
         script = controller.GetComponent<GameScore>();
-        guiText = GameObject.Find("Score").GetComponent<Text>();
-        Debug.Log(script.cake);
+        guiText = GameObject.Find("CakeScore").GetComponent<Text>();
+        //Debug.Log(script.cake);
     }
 
     // Update is called once per frame

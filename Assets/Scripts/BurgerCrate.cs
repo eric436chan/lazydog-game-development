@@ -16,7 +16,7 @@ public class BurgerCrate : MonoBehaviour
     {
         controller = GameObject.Find("GameManager");
         script = controller.GetComponent<GameScore>();
-        guiText = GameObject.Find("Score").GetComponent<Text>();
+        guiText = GameObject.Find("BurgerScore").GetComponent<Text>();
         Debug.Log(script.burgers);
     }
 

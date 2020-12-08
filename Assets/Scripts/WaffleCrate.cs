@@ -17,7 +17,7 @@ public class WaffleCrate : MonoBehaviour
     {
         controller = GameObject.Find("GameManager");
         script = controller.GetComponent<GameScore>();
-        guiText = GameObject.Find("Score").GetComponent<Text>();
+        guiText = GameObject.Find("WaffleScore").GetComponent<Text>();
         //Debug.Log(script.waffles);
     }
 
