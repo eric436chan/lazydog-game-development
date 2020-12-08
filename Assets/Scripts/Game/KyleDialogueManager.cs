@@ -132,7 +132,7 @@ public class KyleDialogueManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
-        FindObjectOfType<JammoDialogueTrigger>().init = false;
+        FindObjectOfType<KyleDialogueTrigger>().init = false;
         FindObjectOfType<MouseLook>().enabled = true;
         FindObjectOfType<FirstPersonPlayer>().enabled = true;
         FindObjectOfType<PauseMenu>().enabled = true;

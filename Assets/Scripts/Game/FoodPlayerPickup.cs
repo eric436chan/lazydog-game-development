@@ -18,10 +18,7 @@ public class FoodPlayerPickup : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                if (KyleDialogueManager.instance.dialogueNumber != 3 || KyleDialogueManager.instance.dialogueNumber != 4)
-                {
-                }
-                else
+                if (KyleDialogueManager.instance.dialogueNumber == 4)
                 {
                     gameObject.GetComponent<Rigidbody>().useGravity = false;
                     gameObject.transform.position = controller.transform.position + controller.transform.forward * 3f;

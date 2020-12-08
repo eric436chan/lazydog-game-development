@@ -30495,7 +30495,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811928938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a36b1f9d7fc0f574a961fab61cbe0af3, type: 3}
   m_Name: 
@@ -63094,6 +63094,7 @@ MonoBehaviour:
   burgers: 0
   waffles: 0
   cake: 0
+  gameScore: {fileID: 1987708307}
 --- !u!114 &1615312288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63123,6 +63124,7 @@ MonoBehaviour:
   dateText: {fileID: 944521204}
   storyText: {fileID: 1433571962}
   bookPanel: {fileID: 44828765}
+  scorePanel: {fileID: 1987708307}
   isPaused: 0
 --- !u!114 &1615312290
 MonoBehaviour:

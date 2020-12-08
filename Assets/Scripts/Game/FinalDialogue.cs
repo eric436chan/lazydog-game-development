@@ -23,14 +23,21 @@ public class FinalDialogue : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("works");
-            FindObjectOfType<MouseLook>().enabled = false;
-            FindObjectOfType<FirstPersonPlayer>().enabled = false;
-            FindObjectOfType<PauseMenu>().enabled = false;
-            JammoDialogueManager.instance.dialogueNumber = 10;
-            JammoDialogueManager.instance.StartDialogue(finalDialogue);
+            if (KyleDialogueManager.instance.dialogueNumber != 7)
+            {
+                return;
+            }
+            else
+            {
+                Debug.Log("works");
+                FindObjectOfType<MouseLook>().enabled = false;
+                FindObjectOfType<FirstPersonPlayer>().enabled = false;
+                FindObjectOfType<PauseMenu>().enabled = false;
+                JammoDialogueManager.instance.dialogueNumber = 10;
+                JammoDialogueManager.instance.StartDialogue(finalDialogue);
 
-            init = true;
+                init = true;
+            }
         }
     }
 }

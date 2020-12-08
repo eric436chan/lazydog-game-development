@@ -23,6 +23,8 @@ public class GameScore : MonoBehaviour
     private int numOfWaffles;
     private int numOfCake;
 
+    public GameObject gameScore;
+
     private void Start()
     {
         burgers = 0;
@@ -32,7 +34,6 @@ public class GameScore : MonoBehaviour
         burgerTotal = GameObject.Find("BurgerTotal").GetComponent<Text>();
         waffleTotal = GameObject.Find("WaffleTotal").GetComponent<Text>();
         cakeTotal = GameObject.Find("CakeTotal").GetComponent<Text>();
-
 
         burgerScore = GameObject.Find("BurgerScore").GetComponent<Text>();
         waffleScore = GameObject.Find("WaffleScore").GetComponent<Text>();
@@ -54,17 +55,25 @@ public class GameScore : MonoBehaviour
         burgerTotal.text = "/" + numOfBurgers;
         waffleTotal.text = "/" + numOfWaffles;
         cakeTotal.text = "/" + numOfCake;
-
     }
 
     private void Update()
     {
-        
+        if (KyleDialogueManager.instance.dialogueNumber == 4)
+        {
+            gameScore.SetActive(true);
+        }
+        else
+        {
+            gameScore.SetActive(false);
+        }
 
         if (burgers >= numOfBurgers && cake >= numOfCake && waffles >= numOfWaffles)
         {
             //end mini game
             KyleDialogueManager.instance.dialogueNumber = 5;
+            gameScore.SetActive(false);
+            Destroy(FindObjectOfType<FoodPlayerPickup>());
             Destroy(this);
         }
     }

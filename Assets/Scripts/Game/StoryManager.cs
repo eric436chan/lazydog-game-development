@@ -8,6 +8,7 @@ public class StoryManager : MonoBehaviour
     public TextMeshProUGUI dateText;
     public TextMeshProUGUI storyText;
     public GameObject bookPanel;
+    public GameObject scorePanel;
 
     public bool isPaused;
     public static StoryManager instance;
@@ -39,12 +40,18 @@ public class StoryManager : MonoBehaviour
         FindObjectOfType<PauseMenu>().enabled = false;
         Cursor.lockState = CursorLockMode.Confined;
 
+        scorePanel.SetActive(false);
         bookPanel.SetActive(true);
     }
 
     public void EndStory()
     {
         bookPanel.SetActive(false);
+        if (KyleDialogueManager.instance.dialogueNumber == 4)
+        {
+            scorePanel.SetActive(true);
+        }
+
         FindObjectOfType<MouseLook>().enabled = true;
         FindObjectOfType<FirstPersonPlayer>().enabled = true;
         FindObjectOfType<PauseMenu>().enabled = true;
